@@ -1,5 +1,5 @@
-import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import './App.scss';
+import {Routes, Route, useLocation} from 'react-router-dom';
 import Home from './containers/home/index';
 import About from './containers/about/index';
 import Resume from './containers/resume/index';
@@ -16,45 +16,50 @@ import particles from './utils.js/particles';
 
 function App() {
 
-const handleInit = async (main) => {
-    await loadSlim(main);
-  
-}
   // this should be run only once per application lifetime
-  
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    })
+  });
 
+  const location = useLocation();
 
+  const renderParticlesJsInHomePage = location.pathname === "/";
   
   return (
     <div className="App">
       {/* particles js */}
-      <Particles
-        id="particles"
-        init = {handleInit}
-        options={particles}
-      />
+
+      {renderParticlesJsInHomePage && (
+        <Particles id="particles" options={particles}/>
+      )}
+      
 
       {/* navbar */}
       <Navbar/>
       
       
       {/* main page content */}
-      <Routes>
 
-        <Route path='/' element={<Home/>}/>
+      <div className='App__main-page-content'>
+        <Routes>
 
-        <Route path='/about' element={<About/>}/>
+          <Route path='/' element={<Home/>}/>
 
-        <Route path='/resume' element={<Resume/>}/>
+          <Route path='/about' element={<About/>}/>
 
-        <Route path='/skills' element={<Skills/>}/>
+          <Route path='/resume' element={<Resume/>}/>
 
-        <Route path='/portfolio' element={<Portfolio/>}/>
+          <Route path='/skills' element={<Skills/>}/>
 
-        <Route path='/contact' element={<Contact/>}/>
+          <Route path='/portfolio' element={<Portfolio/>}/>
+
+          <Route path='/contact' element={<Contact/>}/>
 
 
-      </Routes>
+        </Routes>
+      </div>
     </div>
     
   );
