@@ -8,15 +8,36 @@ import Portfolio from './containers/portfolio/index';
 import Contact from './containers/contact/index';
 import Navbar from './components/navBar/index';
 
+import { useEffect } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import particles from './utils.js/particles';
+
 
 function App() {
+
+const handleInit = async (main) => {
+    await loadSlim(main);
+  
+}
+  // this should be run only once per application lifetime
+  
+
+
+  
   return (
     <div className="App">
       {/* particles js */}
+      <Particles
+        id="particles"
+        init = {handleInit}
+        options={particles}
+      />
 
       {/* navbar */}
       <Navbar/>
-
+      
+      
       {/* main page content */}
       <Routes>
 
@@ -35,6 +56,7 @@ function App() {
 
       </Routes>
     </div>
+    
   );
 }
 
