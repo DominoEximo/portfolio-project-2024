@@ -40,7 +40,7 @@ const Home=() =>{
                 transform : 'translateY(0px)'
             }}>
                 <div className="home__contact-me">
-                    <button onClick={handleNavigateToContactMePage}>Hire Me</button>
+                    <button onClick={handleNavigateToContactMePage}>Message Me</button>
                 </div>
             </Animate>
             
