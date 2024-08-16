@@ -42,7 +42,7 @@ const Skills = () => {
                                             <AnimateKeyframes
                                                 play
                                                 duration={1}
-                                                keyframes={["opacity : 1", "opacity : 0"]}
+                                                keyframes={["opacity : 1", "opacity : 1"]}
                                                 iterationCount="1"
                                             >
                                                 <div key={j} className="progressbar-wrapper" >
