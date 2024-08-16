@@ -4,4 +4,8 @@
     &__main-page-content{
         height: calc(100% - 80px);
     }
+
+    .navbar{
+        z-index: 1;
+    }
 }

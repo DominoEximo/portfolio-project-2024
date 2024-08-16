@@ -37,8 +37,8 @@ function App() {
       
 
       {/* navbar */}
-      <Navbar/>
       
+      <Navbar className="navbar"/>
       
       {/* main page content */}
 
@@ -60,6 +60,8 @@ function App() {
 
         </Routes>
       </div>
+
+      
     </div>
     
   );

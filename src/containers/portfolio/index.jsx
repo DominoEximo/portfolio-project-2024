@@ -1,15 +1,130 @@
-import React from "react";
-import {BsInfoCircleFill} from 'react-icons/bs'
+import React, { useState } from "react";
+import {Link} from 'react-router-dom';
+import { BsInfoCircleFill } from 'react-icons/bs'
 import PageHeaderContent from "../../components/pageHeaderContent/index";
+import ImageOne from '../../images/image1.jpg';
+import ImageTwo from '../../images/image2.jpg';
+import ImageThree from '../../images/image3.jpg';
+import ImageFour from '../../images/image4.jpg';
+import './styles.scss';
 
-const Portfolio=() =>{
-    return(
+const portfolioData = [
+    {
+        id: 2,
+        name: "Webshop",
+        image: ImageFour,
+        link: 'https://github.com/DominoEximo/warehouseproject'
+    },
+    {
+        id: 2,
+        name: "REST API",
+        image: ImageThree,
+        link: 'https://github.com/DominoEximo/50HoursApp'
+    },
+    {
+        id: 3,
+        name: "Minecraft Mod",
+        image: ImageTwo,
+        link: 'https://github.com/DominoEximo/Minecraft_mod'
+    },
+    {
+        id: 3,
+        name: "Indie VideoGame",
+        image: ImageOne,
+        link: 'https://github.com/DominoEximo/DorkSouls'
+    }
+]
+
+const filterData = [
+    {
+        filterId: 1,
+        label: 'All'
+    },
+    {
+        filterId: 2,
+        label: 'Development'
+    },
+    {
+        filterId: 3,
+        label: 'Game Development'
+    },
+]
+
+
+
+const Portfolio = () => {
+
+    const [filteredValue, setFilteredValue] = useState(1);
+    const [hoveredValue, setHoveredValue] = useState(null);
+
+
+    function handleFilter(currentId) {
+        setFilteredValue(currentId);
+    };
+
+    function handleHover(index) {
+        setHoveredValue(index);
+    };
+
+    const filteredItems = filteredValue === 1 ? portfolioData : portfolioData.filter(item => item.id === filteredValue);
+
+
+    return (
         <section id="portfolio" className="portfolio">
-            
+
             <PageHeaderContent
-            headerText = "My Portfolio"
-            icon = {<BsInfoCircleFill size={40}/>}
+                headerText="My Portfolio"
+                icon={<BsInfoCircleFill size={40} />}
             />
+            <div className="portfolio__content">
+
+                <ul className="portfolio__content__filter">
+                    {
+                        filterData.map((item) => (
+                            <li className={item.filterId === filteredValue ? 'active' : ''} onClick={() => handleFilter(item.filterId)} key={item.filterId}>
+
+                                {
+                                    item.label
+                                }
+
+                            </li>
+                        ))
+                    }
+                </ul>
+                <div className="portfolio__content__cards">
+                    {
+                        filteredItems.map((item, index) => (
+                            <div
+                                className="portfolio__content__cards__item"
+                                key={`cardItem${item.name.trim()}`}
+                                onMouseEnter={() => handleHover(index)}
+                                onMouseLeave={() => handleHover(null)}
+                            >
+
+                                <div className="portfolio__content__cards__item__img-wrapper">
+                                    <a>
+                                        <img alt="dummy data" src={item.image} />
+                                    </a>
+                                </div>
+                                <div className="overlay">
+
+                                    {
+                                        index === hoveredValue && (
+                                            <div>
+                                                <p>{item.name}</p>
+                                                <Link to={item.link} className="button">Visit</Link>
+                                            </div>
+                                        )
+                                    }
+
+                                </div>
+                            </div>
+                        ))
+                    }
+
+                </div>
+
+            </div>
 
         </section>
     )
