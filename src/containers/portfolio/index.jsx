@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import {Link} from 'react-router-dom';
-import { BsInfoCircleFill } from 'react-icons/bs'
+import { HiArchiveBox } from "react-icons/hi2";
 import PageHeaderContent from "../../components/pageHeaderContent/index";
 import ImageOne from '../../images/image1.jpg';
 import ImageTwo from '../../images/image2.jpg';
@@ -54,6 +54,10 @@ const filterData = [
 
 const Portfolio = () => {
 
+    useEffect(() => {
+        document.title = 'Portfolio';
+      }, []);
+
     const [filteredValue, setFilteredValue] = useState(1);
     const [hoveredValue, setHoveredValue] = useState(null);
 
@@ -74,7 +78,7 @@ const Portfolio = () => {
 
             <PageHeaderContent
                 headerText="My Portfolio"
-                icon={<BsInfoCircleFill size={40} />}
+                icon={<HiArchiveBox size={40} />}
             />
             <div className="portfolio__content">
 

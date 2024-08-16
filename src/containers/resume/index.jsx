@@ -1,5 +1,5 @@
-import React from "react";
-import { BsInfoCircleFill } from 'react-icons/bs'
+import React ,{ useEffect } from "react";
+import { HiAcademicCap } from "react-icons/hi2";
 import PageHeaderContent from "../../components/pageHeaderContent/index";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css'
@@ -9,12 +9,17 @@ import { MdWork } from 'react-icons/md';
 
 
 const Resume = () => {
+
+    useEffect(() => {
+        document.title = 'Resume';
+      }, []);
+
     return (
         <section id="resume" className="resume">
 
             <PageHeaderContent
                 headerText="My Resume"
-                icon={<BsInfoCircleFill size={40} />}
+                icon={<HiAcademicCap size={40} />}
             />
 
             <div className="timeline">

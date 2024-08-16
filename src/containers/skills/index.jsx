@@ -1,5 +1,5 @@
-import React from "react";
-import { BsInfoCircleFill } from 'react-icons/bs'
+import React , { useEffect } from "react";
+import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import PageHeaderContent from "../../components/pageHeaderContent/index";
 import { skillsData } from "./utils";
 import { Animate, AnimateKeyframes } from 'react-simple-animate';
@@ -8,12 +8,17 @@ import "./styles.scss"
 
 
 const Skills = () => {
+
+    useEffect(() => {
+        document.title = 'Skills';
+      }, []);
+
     return (
         <section id="skills" className="skills">
 
             <PageHeaderContent
                 headerText="My Skills"
-                icon={<BsInfoCircleFill size={40} />}
+                icon={<HiAdjustmentsHorizontal size={40} />}
             />
             <div className="skills__content-wrapper">
                 {
@@ -22,7 +27,7 @@ const Skills = () => {
                             <Animate
                                 play
                                 duration={1}
-                                delay={0.3}
+                                delay={0}
                                 start={{
                                     transform: 'translateX(-200px)'
                                 }}

@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { BsInfoCircleFill } from 'react-icons/bs'
 import { FaDev, FaDatabase } from 'react-icons/fa';
 import { GiWarPick, GiMineralHeart } from "react-icons/gi";
@@ -8,6 +8,10 @@ import "./styles.scss";
 
 const About = () => {
 
+    useEffect(() => {
+        document.title = 'About';
+      }, []);
+    
     const personalDetails = [
         {
             label: "Name",
@@ -45,7 +49,7 @@ const About = () => {
                 <div className="about__content__personalWrapper">
                     <Animate play
                         duration={1.5}
-                        delay={1}
+                        delay={0}
                         start={{
                             transform: 'translateX(-900px)'
                         }}
@@ -57,7 +61,7 @@ const About = () => {
                     </Animate>
                     <Animate play
                         duration={1.5}
-                        delay={1}
+                        delay={0}
                         start={{
                             transform: 'translateX(500px)'
                         }}
@@ -81,7 +85,7 @@ const About = () => {
                 <div className="about__content__servicesWrapper">
                     <Animate play
                         duration={1.5}
-                        delay={1}
+                        delay={0}
                         start={{
                             transform: 'translateX(700px)'
                         }}

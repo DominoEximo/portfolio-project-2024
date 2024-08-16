@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import {Animate} from 'react-simple-animate'
 import './styles.scss';
@@ -11,6 +11,10 @@ const Home=() =>{
 
         navigate('/contact');
     }
+
+    useEffect(() => {
+        document.title = 'Home';
+      }, []);
 
     return(
         <section id="home" className="home">
