@@ -6,6 +6,7 @@ import ImageOne from '../../images/image1.jpg';
 import ImageTwo from '../../images/image2.jpg';
 import ImageThree from '../../images/image3.jpg';
 import ImageFour from '../../images/image4.jpg';
+import ImageFive from '../../images/image5.jpg';
 import './styles.scss';
 
 const portfolioData = [
@@ -32,6 +33,12 @@ const portfolioData = [
         name: "Indie VideoGame",
         image: ImageOne,
         link: 'https://github.com/DominoEximo/DorkSouls'
+    },
+    {
+        id: 4,
+        name: "Movie Recommender",
+        image: ImageFive,
+        link: 'https://github.com/DominoEximo/movie_recommender'
     }
 ]
 
@@ -48,6 +55,10 @@ const filterData = [
         filterId: 3,
         label: 'Game Development'
     },
+    {
+        filterId: 4,
+        label: 'Data Science'
+    }
 ]
 
 

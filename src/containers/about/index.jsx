@@ -35,7 +35,7 @@ const About = () => {
         }
     ];
 
-    const jobSummary = 'I\'m a passionate Junior Developer eager to start my career in the tech industry.While I may have 0 years of professional experience, I have honed my skills through personal projects and self-learning. I have a strong foundation in Java, and I\'m excited to bring my enthusiasm for problem-solving and learning to a dynamic team. I\'m looking forward to growing and contributing as I embark on this journey in software development.'
+    const jobSummary = 'I\'m a passionate Junior Developer, eager to start my career in the tech industry. While I may have zero years of professional experience, I have honed my skills through personal projects and self-learning. Furthermore I have a strong foundation in Java, and I\'m excited to bring my enthusiasm for problem-solving and learning to a dynamic team. I\'m looking forward to improving as I embark on this journey in software development.'
 
     return (
         <section id="about" className="about">
